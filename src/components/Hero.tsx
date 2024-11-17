@@ -1,23 +1,34 @@
 import Image from "next/image";
 import { Container } from "@/components/Container";
 import heroImg from "../../public/img/hero.png";
-import { motion } from "framer-motion";
+import { motion, useScroll, useTransform } from "motion/react";
+import { useRef } from "react";
+
+export const ScrollAdvanced = ({
+  children,
+  distance = 200,
+}: {
+  children: JSX.Element;
+  distance?: number;
+}): JSX.Element => {
+  const targetRef = useRef(null);
+  const { scrollYProgress } = useScroll({
+    target: targetRef,
+  });
+
+  const y = useTransform(scrollYProgress, [0, 1], [-distance, distance]);
+
+  return (
+    <motion.div ref={targetRef} style={{ y }}>
+      {children}
+    </motion.div>
+  );
+};
 
 export const Hero = () => {
   return (
     <>
-      <motion.div
-        initial={{ opacity: 0 }}
-        animate={{
-          opacity: 1,
-          transition: {
-            duration: 0.4,
-            delay: 0.5,
-            ease: "easeInOut",
-          },
-        }}
-        transition={{ duration: 0.5 }}
-      >
+      <ScrollAdvanced>
         <Container className="flex flex-wrap ">
           <div className="flex items-center w-full lg:w-1/2">
             <div className="max-w-2xl mb-8">
@@ -77,33 +88,35 @@ export const Hero = () => {
             </div>
           </div>
         </Container>
-      </motion.div>
-      <Container>
-        <div className="flex flex-col justify-center">
-          <div className="text-xl text-center text-gray-700 dark:text-white">
-            Trusted by <span className="text-indigo-600">2000+</span> customers
-            worldwide
-          </div>
+      </ScrollAdvanced>
+      <ScrollAdvanced distance={300}>
+        <Container>
+          <div className="flex flex-col justify-center">
+            <div className="text-xl text-center text-gray-700 dark:text-white">
+              Trusted by <span className="text-indigo-600">2000+</span>{" "}
+              customers worldwide
+            </div>
 
-          <div className="flex flex-wrap justify-center gap-5 mt-10 md:justify-around">
-            <div className="pt-2 text-gray-400 dark:text-gray-400">
-              <AmazonLogo />
-            </div>
-            <div className="text-gray-400 dark:text-gray-400">
-              <VerizonLogo />
-            </div>
-            <div className="text-gray-400 dark:text-gray-400">
-              <MicrosoftLogo />
-            </div>
-            <div className="pt-1 text-gray-400 dark:text-gray-400">
-              <NetflixLogo />
-            </div>
-            <div className="pt-2 text-gray-400 dark:text-gray-400">
-              <SonyLogo />
+            <div className="flex flex-wrap justify-center gap-5 mt-10 md:justify-around">
+              <div className="pt-2 text-gray-400 dark:text-gray-400">
+                <AmazonLogo />
+              </div>
+              <div className="text-gray-400 dark:text-gray-400">
+                <VerizonLogo />
+              </div>
+              <div className="text-gray-400 dark:text-gray-400">
+                <MicrosoftLogo />
+              </div>
+              <div className="pt-1 text-gray-400 dark:text-gray-400">
+                <NetflixLogo />
+              </div>
+              <div className="pt-2 text-gray-400 dark:text-gray-400">
+                <SonyLogo />
+              </div>
             </div>
           </div>
-        </div>
-      </Container>
+        </Container>
+      </ScrollAdvanced>
     </>
   );
 };

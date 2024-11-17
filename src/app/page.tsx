@@ -1,8 +1,7 @@
 "use client";
 
 import { Container } from "@/components/Container";
-import { Hero } from "@/components/Hero";
-import { motion } from "framer-motion";
+import { Hero, ScrollAdvanced } from "@/components/Hero";
 import { SectionTitle } from "@/components/SectionTitle";
 import { Benefits } from "@/components/Benefits";
 import { Video } from "@/components/Video";
@@ -15,45 +14,57 @@ export default function Home() {
   return (
     <Container>
       <Hero />
-      <SectionTitle
-        preTitle="Nextly Benefits"
-        title=" Why should you use this landing page"
-      >
-        Nextly is a free landing page & marketing website template for startups
-        and indie projects. Its built with Next.js & TailwindCSS. And its
-        completely open-source.
-      </SectionTitle>
+      <ScrollAdvanced>
+        <SectionTitle
+          preTitle="Nextly Benefits"
+          title=" Why should you use this landing page"
+        >
+          Nextly is a free landing page & marketing website template for
+          startups and indie projects. Its built with Next.js & TailwindCSS. And
+          its completely open-source.
+        </SectionTitle>
+      </ScrollAdvanced>
+      <ScrollAdvanced>
+        <Benefits data={benefitOne} />
+      </ScrollAdvanced>
+      <ScrollAdvanced>
+        <Benefits imgPos="right" data={benefitTwo} />
+      </ScrollAdvanced>
+      <ScrollAdvanced>
+        <SectionTitle
+          preTitle="Watch a video"
+          title="Learn how to fullfil your needs"
+        >
+          This section is to highlight a promo or demo video of your product.
+          Analysts says a landing page with video has 3% more conversion rate.
+          So, don&apos;t forget to add one. Just like this.
+        </SectionTitle>
+      </ScrollAdvanced>
+      <ScrollAdvanced>
+        <Video videoId="fZ0D0cnR88E" />
+      </ScrollAdvanced>
+      <ScrollAdvanced>
+        <SectionTitle
+          preTitle="Testimonials"
+          title="Here's what our customers said"
+        >
+          Testimonials is a great way to increase the brand trust and awareness.
+          Use this section to highlight your popular customers.
+        </SectionTitle>
+      </ScrollAdvanced>
+      <ScrollAdvanced>
+        <Testimonials />
+      </ScrollAdvanced>
+      <ScrollAdvanced>
+        <div className="flex flex-col">
+          <SectionTitle preTitle="FAQ" title="Frequently Asked Questions">
+            Answer your customers possible questions here, it will increase the
+            conversion rate as well as support or chat requests.
+          </SectionTitle>
+          <Faq />
+        </div>
+      </ScrollAdvanced>
 
-      <Benefits data={benefitOne} />
-      <Benefits imgPos="right" data={benefitTwo} />
-
-      <SectionTitle
-        preTitle="Watch a video"
-        title="Learn how to fullfil your needs"
-      >
-        This section is to highlight a promo or demo video of your product.
-        Analysts says a landing page with video has 3% more conversion rate. So,
-        don&apos;t forget to add one. Just like this.
-      </SectionTitle>
-
-      <Video videoId="fZ0D0cnR88E" />
-
-      <SectionTitle
-        preTitle="Testimonials"
-        title="Here's what our customers said"
-      >
-        Testimonials is a great way to increase the brand trust and awareness.
-        Use this section to highlight your popular customers.
-      </SectionTitle>
-
-      <Testimonials />
-
-      <SectionTitle preTitle="FAQ" title="Frequently Asked Questions">
-        Answer your customers possible questions here, it will increase the
-        conversion rate as well as support or chat requests.
-      </SectionTitle>
-
-      <Faq />
       <Cta />
     </Container>
   );

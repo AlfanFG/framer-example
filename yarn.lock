@@ -1301,6 +1301,13 @@ framer-motion@^11.11.11:
   dependencies:
     tslib "^2.4.0"
 
+framer-motion@^11.11.13:
+  version "11.11.13"
+  resolved "https://registry.yarnpkg.com/framer-motion/-/framer-motion-11.11.13.tgz#0cf05798a243b003cc7aac4ffc5d89c7c0d77419"
+  integrity sha512-aoEA83gsqRRsnh4TN7S9YNcKVLrg+GtPNnxNMd9bGn23+pLmuKGQeccPnqffEKzlkgmy2MkMo0jRkK41S2LzWw==
+  dependencies:
+    tslib "^2.4.0"
+
 fs.realpath@^1.0.0:
   version "1.0.0"
   resolved "https://registry.yarnpkg.com/fs.realpath/-/fs.realpath-1.0.0.tgz#1504ad2523158caa40db4a2787cb01411994ea4f"
@@ -1910,6 +1917,14 @@ minimist@^1.2.0, minimist@^1.2.6:
   version "7.1.1"
   resolved "https://registry.yarnpkg.com/minipass/-/minipass-7.1.1.tgz#f7f85aff59aa22f110b20e27692465cf3bf89481"
   integrity sha512-UZ7eQ+h8ywIRAW1hIEl2AqdwzJucU/Kp59+8kkZeSvafXhZjul247BvIJjEVFVeON6d7lM46XX1HXCduKAS8VA==
+
+motion@^11.11.14:
+  version "11.11.14"
+  resolved "https://registry.yarnpkg.com/motion/-/motion-11.11.14.tgz#c1a6bd787c54de370cffca65ca83c49f03aee917"
+  integrity sha512-WABtM4t3+SQ4jQ/5TDkRsH9VD6jakGeOrnzra4tnDma0JUT21/n113yCyn889yJSq0bEJnfFphFXo0gOVRICXg==
+  dependencies:
+    framer-motion "^11.11.13"
+    tslib "^2.4.0"
 
 ms@2.1.2:
   version "2.1.2"
